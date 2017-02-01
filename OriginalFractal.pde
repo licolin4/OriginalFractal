@@ -5,20 +5,44 @@ public void setup()
 }
 public void draw()
 {
-	fractal(0,50,100,50,180);
-
+	fill(255,255,255);
+	fractal(0,150,90);
+	fill(128,128,128);
+	myfractal(250,140,180);
 }
-public void fractal(int x, int y, int w, int h, int n)
+public void fractal(int x, int y, int n)
 {
-	if(n<=20||h<=20)
+	if(n<=20)
 	{
-		rect(x+50,y+50,w,h);
+		rect(x,y,n,n);
+		triangle(x, y, n, n, x+n, y+n);
 	}
 	else {
-		fractal(x+n/2,y+n,w+n/2,h+n/2,n/2);
-		fractal(x+n/2,y+n,w+n/4,h+n/4,n/2);
-		fractal(x+n/4,y+n/6,w+n/6,h+n/6,n/2);
-		fractal(x+n/2,y+n/8,w+n/8,h+n/8,n/2);
-		fractal(x+n,y+n,w+n/10,h+n/16,n/2);
+		fractal(x+n/2,y+n,n/2);
+		fractal(x+n/2,y+n,n/2);
+		fractal(x+n,y+n/6,n/2);
+		fractal(x+n/2,y+n/8,n/2);
+		fractal(x,y,n/2);
 	}
 }
+public void myfractal(int x, int y, int n)
+{
+	if(n<=20)
+	{
+		rect(x,y,n,n);
+		triangle(x, y, n, n, x+n, y+n);
+	}
+	else {
+		//myfractal(x+n/2,y+n,n/2);
+		//myfractal(x+n/2,y+n,n/2);
+		//myfractal(x+n/4,y+n/6,n/2);
+		//myfractal(x+n/2,y+n/8,n/2);
+		//myfractal(x,y,n/2);
+		myfractal(x,y,n/2);
+		myfractal(x+n/2,y,n/2);
+		myfractal(x+n/2,y-n/2,n/2);
+	}
+}
+		//sierpinski(x,y,len/2);
+		//sierpinski(x+len/2,y,len/2);
+		//sierpinski(x+len/4,y-len/2,len/2);
