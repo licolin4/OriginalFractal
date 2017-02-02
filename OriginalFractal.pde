@@ -5,6 +5,8 @@ public void setup()
 }
 public void draw()
 {
+	fill(142,156,200);
+	thefractal(200,300,180);
 	fill(255,255,255);
 	fractal(0,150,90);
 	fill(128,128,128);
@@ -46,3 +48,17 @@ public void myfractal(int x, int y, int n)
 		//sierpinski(x,y,len/2);
 		//sierpinski(x+len/2,y,len/2);
 		//sierpinski(x+len/4,y-len/2,len/2);
+public void thefractal(int x, int y, int n)
+{
+	if(n<=20)
+	{
+		ellipse(x,y,n,n);
+	}
+	else {
+		myfractal(x+n/2,y+n,n/2);
+		myfractal(x+n/2,y+n,n/2);
+		myfractal(x+n,y+n/6,n/2);
+		myfractal(x+n/2,y+n/8,n/2);
+		myfractal(x,y,n/2);
+	}
+}
